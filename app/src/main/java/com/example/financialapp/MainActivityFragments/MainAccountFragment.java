@@ -181,8 +181,11 @@ public class MainAccountFragment extends Fragment {
         if (expense != 0) {
             pieEntryList.add(new PieEntry(expense, "Expense"));
             colorList.add(getResources().getColor(R.color.red));
+        } else if (income != 0) {
+            pieEntryList.add(new PieEntry(expense, "Expense"));
+            colorList.add(getResources().getColor(R.color.red));
         }
-        PieDataSet pieDataSet = new PieDataSet(pieEntryList, String.valueOf(income = expense));
+        PieDataSet pieDataSet = new PieDataSet(pieEntryList, "Income/Expense");
         pieDataSet.setColors(colorList);
         pieDataSet.setValueTextColor(getResources().getColor(R.color.white));
         PieData pieData = new PieData(pieDataSet);
@@ -195,6 +198,7 @@ public class MainAccountFragment extends Fragment {
         description.setTextSize(12f);
         binding.pieChart.setDescription(description);
     }
+
 
     @Override
     public void onDestroyView() {
