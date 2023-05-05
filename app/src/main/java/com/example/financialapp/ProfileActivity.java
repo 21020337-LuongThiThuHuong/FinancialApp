@@ -63,6 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        setTitle(R.string.profileTT);
 
         sweetAlertDialog = new SweetAlertDialog(ProfileActivity.this, SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
@@ -260,6 +261,7 @@ public class ProfileActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (R.id.saveChanges_button == id) {
+            sweetAlertDialog.show();
             String name = binding.userName.getText().toString();
             String number = binding.userNumber.getText().toString();
             if (name.length() == 0) {
@@ -270,20 +272,20 @@ public class ProfileActivity extends AppCompatActivity {
                 binding.userNumber.setError("Empty");
                 return false;
             }
-            if (tempImage != null) {
-                StorageReference reference = storage.getReference().child("images/" + tempUser.getId());
-                reference.putFile(tempImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Log.d("FinancialApp", "Upload profile picture successfully!");
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("FinancialApp", "Upload profile picture failed!");
-                    }
-                });
-            }
+//            if (tempImage != null) {
+//                StorageReference reference = storage.getReference().child("images/" + tempUser.getId());
+//                reference.putFile(tempImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                    @Override
+//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                        Log.d("FinancialApp", "Upload profile picture successfully!");
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.d("FinancialApp", "Upload profile picture failed!");
+//                    }
+//                });
+//            }
             tempUser.setName(name);
             tempUser.setNumber(number);
             FirebaseFirestore.getInstance().collection("User").document(tempUser.getId())
@@ -291,9 +293,33 @@ public class ProfileActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(ProfileActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(ProfileActivity.this, MainActivity.class));
-                            finish();
+                            if (tempImage != null) {
+                                StorageReference reference = storage.getReference().child("images/" + tempUser.getId());
+                                reference.putFile(tempImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                        Log.d("FinancialApp", "Upload profile picture successfully!");
+                                        Toast.makeText(ProfileActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
+                                        sweetAlertDialog.dismissWithAnimation();
+                                        startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                                        finish();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.d("FinancialApp", "Upload profile picture failed!");
+                                        Toast.makeText(ProfileActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
+                                        sweetAlertDialog.dismissWithAnimation();
+                                        startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                                        finish();
+                                    }
+                                });
+                            } else {
+                                sweetAlertDialog.dismissWithAnimation();
+                                Toast.makeText(ProfileActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                                finish();
+                            }
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

@@ -66,6 +66,7 @@ public class AddTransactionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddTransactionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setTitle(R.string.add_transationTT);
 
         customSpinnerAdapter = new CustomSpinnerAdapter(this, categories, icons);
         binding.categorySpinner.setAdapter(customSpinnerAdapter);

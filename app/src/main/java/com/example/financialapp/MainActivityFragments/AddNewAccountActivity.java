@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.financialapp.MainActivity;
 import com.example.financialapp.Model.AccountModel;
 import com.example.financialapp.NumberTextWatcherForThousand;
+import com.example.financialapp.R;
 import com.example.financialapp.databinding.ActivityAddNewAccountBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,6 +29,7 @@ public class AddNewAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddNewAccountBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setTitle(R.string.add_accountTT);
 
         binding.initValueET.addTextChangedListener(new NumberTextWatcherForThousand(binding.initValueET));
 
@@ -43,7 +45,7 @@ public class AddNewAccountActivity extends AppCompatActivity {
             binding.initValueET.setEnabled(false);
             binding.initValueET.setInputType(InputType.TYPE_NULL);
 
-            binding.addAccountButton.setText("Update Account");
+            binding.addAccountButton.setText(R.string.update_accountBT);
         }
 
         binding.addAccountButton.setOnClickListener(new View.OnClickListener() {

@@ -112,10 +112,10 @@ public class MainActivity extends LocaleAwareCompatActivity implements Navigatio
                 (tab, position) -> {
                     switch (position) {
                         case 0:
-                            tab.setText("Accounts");
+                            tab.setText(R.string.tab0);
                             break;
                         case 1:
-                            tab.setText("Budgets & Goals");
+                            tab.setText(R.string.tab1);
                             break;
                     }
                 }

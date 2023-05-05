@@ -43,6 +43,7 @@ public class AddSavingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddSavingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setTitle(R.string.add_savingTT);
 
         binding.savedET.addTextChangedListener(new NumberTextWatcherForThousand(binding.savedET));
 

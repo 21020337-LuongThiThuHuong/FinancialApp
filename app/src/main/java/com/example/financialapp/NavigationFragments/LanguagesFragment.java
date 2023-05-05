@@ -70,8 +70,10 @@ public class LanguagesFragment extends Fragment {
             locale = Locales.INSTANCE.getEnglish();
         } else if (binding.JPRadio.isChecked()) {
             current_language = japanese;
+            locale = Locales.INSTANCE.getJapanese();
         } else if (binding.CNRadio.isChecked()) {
             current_language = chinese;
+            locale = Locale.CHINA;
         } else {
             current_language = english;
             locale = Locales.INSTANCE.getEnglish();

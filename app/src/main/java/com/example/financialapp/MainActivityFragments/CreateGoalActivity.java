@@ -42,6 +42,7 @@ public class CreateGoalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateGoalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setTitle(R.string.create_goalTT);
 
         binding.targetET.addTextChangedListener(new NumberTextWatcherForThousand(binding.targetET));
         binding.savedET.addTextChangedListener(new NumberTextWatcherForThousand(binding.savedET));
@@ -53,7 +54,7 @@ public class CreateGoalActivity extends AppCompatActivity {
             binding.savedET.setText(String.valueOf(currentGoal.getSaved()));
             binding.goalAchievedNotify.setChecked(currentGoal.isGoalAchievedNoti());
 
-            binding.addGoalButton.setText("Update Goal");
+            binding.addGoalButton.setText(R.string.update_goalBT);
         }
 
         binding.addGoalButton.setOnClickListener(new View.OnClickListener() {

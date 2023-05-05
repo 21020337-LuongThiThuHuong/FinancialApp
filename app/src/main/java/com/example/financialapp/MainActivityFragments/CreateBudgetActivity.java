@@ -40,6 +40,7 @@ public class CreateBudgetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateBudgetBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setTitle(R.string.create_budgetTT);
 
         binding.budgetET.addTextChangedListener(new NumberTextWatcherForThousand(binding.budgetET));
 
@@ -61,7 +62,7 @@ public class CreateBudgetActivity extends AppCompatActivity {
             binding.budgetOverspentNotify.setChecked(currentBudget.isBudgetOverspent());
             binding.riskOverspendingNotify.setChecked(currentBudget.isRiskOverspending());
 
-            binding.addBudgetButton.setText("Update budget");
+            binding.addBudgetButton.setText(R.string.update_budgetBT);
         }
         binding.addBudgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
