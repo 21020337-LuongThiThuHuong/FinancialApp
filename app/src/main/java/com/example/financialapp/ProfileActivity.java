@@ -266,26 +266,14 @@ public class ProfileActivity extends AppCompatActivity {
             String number = binding.userNumber.getText().toString();
             if (name.length() == 0) {
                 binding.userName.setError("Empty");
+                sweetAlertDialog.dismissWithAnimation();
                 return false;
             }
             if (number.length() == 0) {
                 binding.userNumber.setError("Empty");
+                sweetAlertDialog.dismissWithAnimation();
                 return false;
             }
-//            if (tempImage != null) {
-//                StorageReference reference = storage.getReference().child("images/" + tempUser.getId());
-//                reference.putFile(tempImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                    @Override
-//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                        Log.d("FinancialApp", "Upload profile picture successfully!");
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.d("FinancialApp", "Upload profile picture failed!");
-//                    }
-//                });
-//            }
             tempUser.setName(name);
             tempUser.setNumber(number);
             FirebaseFirestore.getInstance().collection("User").document(tempUser.getId())
@@ -325,6 +313,7 @@ public class ProfileActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            sweetAlertDialog.dismissWithAnimation();
                             Toast.makeText(ProfileActivity.this, "Update failed!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(ProfileActivity.this, MainActivity.class));
                             finish();

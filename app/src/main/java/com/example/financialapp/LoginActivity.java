@@ -211,8 +211,6 @@ public class LoginActivity extends AppCompatActivity {
                                                 Log.w(TAG, "signInWithCredential:failure", task.getException());
                                                 Toast.makeText(LoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
                                             }
-
-                                            ;
                                         });
                             } else {
                                 FirebaseFirestore.getInstance().collection("User").document(user.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
