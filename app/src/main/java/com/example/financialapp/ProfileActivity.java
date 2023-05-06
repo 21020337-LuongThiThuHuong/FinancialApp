@@ -86,7 +86,7 @@ public class ProfileActivity extends AppCompatActivity {
         binding.imageProfile.setImageResource(R.drawable.default_profile_picture);
 
         if (MainActivity.profilePicture != null) {
-            Glide.with(ProfileActivity.this)
+            Glide.with(getApplicationContext())
                     .load(MainActivity.profilePicture)
                     .into(binding.imageProfile);
         }
@@ -143,81 +143,82 @@ public class ProfileActivity extends AppCompatActivity {
     private void deleteUser() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        boolean deleteTransaction = false;
-        boolean deleteBudget = false;
-        boolean deleteGoal = false;
         assert user != null;
-        db.collection("User").document(tempUser.getId()).delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            db.collection("Account").whereEqualTo("userId", tempUser.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                                            AccountModel tempAccountModel = documentSnapshot.toObject(AccountModel.class);
-                                            db.collection("Account").document(documentSnapshot.getId()).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if (task.isSuccessful()) {
-                                                        db.collection("Transaction").whereEqualTo("accountId", tempAccountModel.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                                            @Override
-                                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                                                if (task.isSuccessful()) {
-                                                                    int cnt = 0;
-                                                                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                                                                        db.collection("Transaction").document(documentSnapshot.getId()).delete();
+        user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                db.collection("User").document(tempUser.getId()).delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    db.collection("Account").whereEqualTo("userId", tempUser.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                                    AccountModel tempAccountModel = documentSnapshot.toObject(AccountModel.class);
+                                                    db.collection("Account").document(documentSnapshot.getId()).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()) {
+                                                                db.collection("Transaction").whereEqualTo("accountId", tempAccountModel.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                                        if (task.isSuccessful()) {
+                                                                            int cnt = 0;
+                                                                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                                                                db.collection("Transaction").document(documentSnapshot.getId()).delete();
+                                                                            }
+                                                                        }
                                                                     }
-                                                                }
+                                                                });
                                                             }
-                                                        });
-                                                    }
+                                                        }
+                                                    });
                                                 }
-                                            });
+                                            }
                                         }
-                                    }
-                                }
-                            });
+                                    });
 
-                            db.collection("Goal").whereEqualTo("userId", tempUser.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                                            db.collection("Goal").document(documentSnapshot.getId()).delete();
+                                    db.collection("Goal").whereEqualTo("userId", tempUser.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                                    db.collection("Goal").document(documentSnapshot.getId()).delete();
+                                                }
+                                            }
                                         }
-                                    }
-                                }
-                            });
+                                    });
 
-                            db.collection("Budget").whereEqualTo("userId", tempUser.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
-                                            db.collection("Budget").document(documentSnapshot.getId()).delete();
+                                    db.collection("Budget").whereEqualTo("userId", tempUser.getId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                                    db.collection("Budget").document(documentSnapshot.getId()).delete();
+                                                }
+                                            }
                                         }
-                                    }
+                                    });
+
+                                    StorageReference reference = storage.getReference().child("images/" + tempUser.getId());
+                                    reference.delete();
+
+                                    gsc.signOut();
+                                    FirebaseAuth.getInstance().signOut();
+                                    finishAffinity();
+                                    finishAndRemoveTask();
+                                    MainAccountFragment.currentAccId = "";
+                                    sweetAlertDialog.dismissWithAnimation();
+                                    startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
+                                    finish();
                                 }
-                            });
-
-                            StorageReference reference = storage.getReference().child("images/" + tempUser.getId());
-                            reference.delete();
-
-                            user.delete();
-                            gsc.signOut();
-                            FirebaseAuth.getInstance().signOut();
-                            finishAffinity();
-                            finishAndRemoveTask();
-                            MainAccountFragment.currentAccId = "";
-                            sweetAlertDialog.dismissWithAnimation();
-                            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
-                            finish();
-                        }
-                    }
-                });
+                            }
+                        });
+            }
+        });
     }
 
     private void updatePassword() {

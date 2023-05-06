@@ -7,7 +7,7 @@
     <string name="transaction_amount_hint">交易金额</string>
     <string name="expense_radio">费用</string>
     <string name="income_radio">收入</string>
-    <string name="note_transactionTV">笔记</string>
+    <string name="note_transactionTV">笔记 (Optional)</string>
     <string name="note_transaction_hint">交易说明</string>
     <string name="dateTV">日期</string>
     <string name="timeTV">时间</string>
@@ -65,10 +65,10 @@
     <string name="Q3">数据安全</string>
     <string name="A3">所有数据、用户信息和身份验证都存储在 Firestore 数据库、Firebase 云存储和 Firebase 身份验证中，因此将获得 Google 安全级别。用户的任何数据都不会用于个人目的。</string>
     <string name="choose_your_language">选择你的语言</string>
-    <string name="vietnamese">越南语</string>
-    <string name="english">英语</string>
-    <string name="japanese">日本人</string>
-    <string name="chinese">中国人</string>
+    <string name="vietnamese">\ud83c\uddfb\ud83c\uddf3 越南语</string>
+    <string name="english">\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f 英语</string>
+    <string name="japanese">\ud83c\uddef\ud83c\uddf5 日本人</string>
+    <string name="chinese">\ud83c\udde8\ud83c\uddf3 中国人</string>
     <string name="set_your_languageBT">设置您的语言</string>
     <string name="tab0">帐户</string>
     <string name="tab1"><![CDATA[预算和目标]]></string>
@@ -86,7 +86,7 @@
     <string name="password_desTV">如果您不想更改密码，请将密码留空。</string>
     <string name="change_passwordBT">更改密码</string>
     <string name="delete_all_user_data">删除所有的用户数据</string>
-    <string name="add_transationTT">添加交易</string>
+    <string name="add_transactionTT">添加交易</string>
     <string name="calculatorTT">计算器</string>
     <string name="add_accountTT">新增帐户</string>
     <string name="add_savingTT">添加保存</string>

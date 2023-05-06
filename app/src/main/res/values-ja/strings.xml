@@ -7,7 +7,7 @@
     <string name="transaction_amount_hint">取引金額</string>
     <string name="expense_radio">費用</string>
     <string name="income_radio">所得</string>
-    <string name="note_transactionTV">ノート</string>
+    <string name="note_transactionTV">ノート(Optional)</string>
     <string name="note_transaction_hint">取引内容</string>
     <string name="dateTV">日にち</string>
     <string name="timeTV">時間</string>
@@ -65,10 +65,10 @@
     <string name="Q3">データセキュリティ</string>
     <string name="A3">すべてのデータ、ユーザー情報、および認証は、Firestore データベース、Firebase クラウド ストレージ、および Firebase 認証に保存されるため、Google のセキュリティ レベルが取得されます。ユーザーからのデータが個人的な目的で使用されることはありません。</string>
     <string name="choose_your_language">言語を選んでください</string>
-    <string name="vietnamese">ベトナム語</string>
-    <string name="english">英語</string>
-    <string name="japanese">日本</string>
-    <string name="chinese">中国語</string>
+    <string name="vietnamese">\ud83c\uddfb\ud83c\uddf3 ベトナム語</string>
+    <string name="english">\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f 英語</string>
+    <string name="japanese">\ud83c\uddef\ud83c\uddf5 日本</string>
+    <string name="chinese">\ud83c\udde8\ud83c\uddf3 中国語</string>
     <string name="set_your_languageBT">言語を設定する</string>
     <string name="tab0">アカウント</string>
     <string name="tab1"><![CDATA[予算と目標]]></string>
@@ -86,7 +86,7 @@
     <string name="password_desTV">パスワードを変更したくない場合は、パスワードを空のままにします。</string>
     <string name="change_passwordBT">パスワードを変更する</string>
     <string name="delete_all_user_data">すべてのユーザーデータを削除します</string>
-    <string name="add_transationTT">取引を追加</string>
+    <string name="add_transactionTT">取引を追加</string>
     <string name="calculatorTT">電卓</string>
     <string name="add_accountTT">アカウントを追加する</string>
     <string name="add_savingTT">節約を追加</string>

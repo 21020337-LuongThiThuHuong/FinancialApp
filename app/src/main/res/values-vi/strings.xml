@@ -8,7 +8,7 @@
     <string name="transaction_amount_hint">Số tiền giao dịch</string>
     <string name="expense_radio">Chi tiêu</string>
     <string name="income_radio">Thu nhập</string>
-    <string name="note_transactionTV">Ghi chú</string>
+    <string name="note_transactionTV">Ghi chú (Optional)</string>
     <string name="note_transaction_hint">Chi tiết giao dịch</string>
     <string name="dateTV">Ngày</string>
     <string name="timeTV">Giờ</string>
@@ -66,10 +66,10 @@
     <string name="Q3">Bảo mật dữ liệu</string>
     <string name="A3">"Tất cả dữ liệu, thông tin người dùng và xác thực được lưu trữ trong cơ sở dữ liệu Firestore, bộ lưu trữ đám mây Firebase và xác thực Firebase nên nó sẽ nhận được cấp độ bảo mật của Google. Không có dữ liệu từ người dùng sẽ được sử dụng cho mục đích cá nhân. "</string>
     <string name="choose_your_language">Lựa chọn ngôn ngữ</string>
-    <string name="vietnamese">Tiếng Việt</string>
-    <string name="english">Tiếng Anh</string>
-    <string name="japanese">Tiếng Nhật</string>
-    <string name="chinese">Tiếng Trung</string>
+    <string name="vietnamese">\ud83c\uddfb\ud83c\uddf3 Tiếng Việt</string>
+    <string name="english">\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f Tiếng Anh</string>
+    <string name="japanese">\ud83c\uddef\ud83c\uddf5 Tiếng Nhật</string>
+    <string name="chinese">\ud83c\udde8\ud83c\uddf3 Tiếng Trung</string>
     <string name="set_your_languageBT">Đặt ngôn ngữ</string>
     <string name="tab0">Tài khoản</string>
     <string name="tab1"><![CDATA[Ngân sách và mục tiêu]]></string>
@@ -87,7 +87,7 @@
     <string name="password_desTV">Để trống nếu bạn không muốn thay đổi</string>
     <string name="change_passwordBT">Đổi mật khẩu</string>
     <string name="delete_all_user_data">XÓA TOÀN BỘ DỮ LIỆU NGƯỜI DÙNG</string>
-    <string name="add_transationTT">Thêm giao dịch</string>
+    <string name="add_transactionTT">Thêm giao dịch</string>
     <string name="calculatorTT">Máy tính</string>
     <string name="add_accountTT">Thêm tài khoản</string>
     <string name="add_savingTT">Thêm tiết kiệm</string>

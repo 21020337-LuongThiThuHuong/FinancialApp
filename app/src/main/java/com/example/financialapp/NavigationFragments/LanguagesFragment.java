@@ -59,8 +59,6 @@ public class LanguagesFragment extends Fragment {
             current_language = japanese;
         } else if (locale.getLanguage().equals(new Locale("zh").getLanguage())) {
             current_language = chinese;
-        } else {
-            current_language = english;
         }
 
 

@@ -7,7 +7,7 @@
     <string name="transaction_amount_hint">Transaction amount</string>
     <string name="expense_radio">Expense</string>
     <string name="income_radio">Income</string>
-    <string name="note_transactionTV">Note</string>
+    <string name="note_transactionTV">Note (Optional)</string>
     <string name="note_transaction_hint">Transaction description</string>
     <string name="dateTV">Date</string>
     <string name="timeTV">Time</string>
@@ -65,10 +65,10 @@
     <string name="Q3">Data Security</string>
     <string name="A3">All the data, user information and authentication are stored in Firestore database, Firebase cloud storage and Firebase authentication so it will get Google security level. No data from users will be used for personal purpose.</string>
     <string name="choose_your_language">Choose your language</string>
-    <string name="vietnamese">Vietnamese</string>
-    <string name="english">English</string>
-    <string name="japanese">Japanese</string>
-    <string name="chinese">Chinese</string>
+    <string name="vietnamese">\ud83c\uddfb\ud83c\uddf3 Vietnamese</string>
+    <string name="english">\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f English</string>
+    <string name="japanese">\ud83c\uddef\ud83c\uddf5 Japanese</string>
+    <string name="chinese">\ud83c\udde8\ud83c\uddf3 Chinese</string>
     <string name="set_your_languageBT">Set your language</string>
     <string name="tab0">Account</string>
     <string name="tab1"><![CDATA[Budgets & Goals]]></string>
@@ -86,7 +86,7 @@
     <string name="password_desTV">Leave passwords empty, when you don\'t want to change it.</string>
     <string name="change_passwordBT">Change password</string>
     <string name="delete_all_user_data">DELETE ALL USER DATA</string>
-    <string name="add_transationTT">Add Transaction</string>
+    <string name="add_transactionTT">Add Transaction</string>
     <string name="calculatorTT">Calculator</string>
     <string name="add_accountTT">Add Account</string>
     <string name="add_savingTT">Add Saving</string>
