@@ -43,7 +43,7 @@
                     android:layout_gravity="center"
                     android:text="Percentage"
                     android:textColor="@color/main_green"
-                    android:textSize="28sp" />
+                    android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/fraction_TV"
@@ -52,7 +52,7 @@
                     android:layout_gravity="center"
                     android:text="Fraction"
                     android:textColor="@color/main_green"
-                    android:textSize="28sp" />
+                    android:textSize="22sp" />
 
             </LinearLayout>
         </FrameLayout>
