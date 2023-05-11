@@ -30,7 +30,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.financialapp.Adapter.CustomSpinnerAdapter;
 import com.example.financialapp.MainActivity;
-import com.example.financialapp.MainActivityFragments.MainAccountFragment;
+import com.example.financialapp.MainActivityPackage.MainAccountFragment;
 import com.example.financialapp.Model.TransactionModel;
 import com.example.financialapp.NumberTextWatcherForThousand;
 import com.example.financialapp.R;
@@ -38,7 +38,6 @@ import com.example.financialapp.databinding.ActivityAddTransactionBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.zeugmasolutions.localehelper.LocaleAwareCompatActivity;
 
 import java.text.ParseException;
 import java.util.Calendar;

@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.example.financialapp.MainActivityFragments.MainAccountFragment;
+import com.example.financialapp.MainActivityPackage.MainAccountFragment;
 import com.example.financialapp.Model.AccountModel;
 import com.example.financialapp.Model.UserModel;
 import com.example.financialapp.databinding.ActivityProfileBinding;
@@ -37,8 +37,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.util.Collections;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
