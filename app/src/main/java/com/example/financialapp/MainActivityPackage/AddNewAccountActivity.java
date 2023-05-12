@@ -81,7 +81,7 @@ public class AddNewAccountActivity extends AppCompatActivity {
         else type = "Bank";
 
 
-        AccountModel accountModel = new AccountModel(id, name, type, initialValue);
+        AccountModel accountModel = new AccountModel(id, name, type, initialValue, tempAccount.getBalance());
 
         FirebaseFirestore
                 .getInstance()
