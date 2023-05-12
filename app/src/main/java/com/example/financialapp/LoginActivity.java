@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
         sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        sweetAlertDialog.setCancelable(false);
 
         storage = FirebaseStorage.getInstance();
 
@@ -224,6 +225,7 @@ public class LoginActivity extends AppCompatActivity {
                                         if (tempGGUser.isSignIn()) {
                                             Toast.makeText(LoginActivity.this, "This account already been signed in!", Toast.LENGTH_SHORT).show();
                                             FirebaseAuth.getInstance().signOut();
+                                            gsc.signOut();
                                             LoginActivity.this.recreate();
                                         } else {
                                             tempGGUser.setSignIn(true);
