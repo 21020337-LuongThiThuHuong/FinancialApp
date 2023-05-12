@@ -174,7 +174,6 @@ public class AddTransactionActivity extends AppCompatActivity {
             return true;
         }
         if (transactionModel != null && android.R.id.home == id) {
-            finishAffinity();
             startActivity(new Intent(AddTransactionActivity.this, MainActivity.class));
             finish();
             return true;
@@ -410,7 +409,6 @@ public class AddTransactionActivity extends AppCompatActivity {
                                                 pushBudgetData();
                                             } else {
                                                 sweetAlertDialog.dismissWithAnimation();
-                                                finishAffinity();
                                                 startActivity(new Intent(AddTransactionActivity.this, MainActivity.class));
                                                 finish();
                                             }
@@ -442,7 +440,6 @@ public class AddTransactionActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void unused) {
                                     sweetAlertDialog.dismissWithAnimation();
-                                    finishAffinity();
                                     startActivity(new Intent(AddTransactionActivity.this, MainActivity.class));
                                     finish();
                                 }
@@ -452,7 +449,6 @@ public class AddTransactionActivity extends AppCompatActivity {
                                 public void onFailure(@NonNull Exception e) {
                                     Toast.makeText(AddTransactionActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                     sweetAlertDialog.dismissWithAnimation();
-                                    finishAffinity();
                                     startActivity(new Intent(AddTransactionActivity.this, MainActivity.class));
                                     finish();
                                 }
