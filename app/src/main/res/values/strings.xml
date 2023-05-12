@@ -30,7 +30,7 @@
     <string name="periodTV">Period</string>
     <string name="notificationTV">Notification</string>
     <string name="budget_overspentSW">Budget Overspent</string>
-    <string name="risk_of_overspendingSW">Risk of overspending</string>
+    <string name="risk_of_overspendingSW">Risk of Overspending</string>
     <string name="add_budgetBT">Add Budget</string>
     <string name="update_budgetBT">Update budget</string>
     <string name="name_goalTV">Name</string>

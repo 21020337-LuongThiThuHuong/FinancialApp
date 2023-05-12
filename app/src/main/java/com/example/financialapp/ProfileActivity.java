@@ -38,6 +38,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.mozilla.javascript.tools.jsc.Main;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -102,6 +104,7 @@ public class ProfileActivity extends AppCompatActivity {
                             public void onSuccess(Void unused) {
                                 gsc.signOut();
                                 FirebaseAuth.getInstance().signOut();
+                                MainActivity.profilePicture = null;
                                 finishAffinity();
                                 finishAndRemoveTask();
                                 MainAccountFragment.currentAccId = "";
@@ -167,6 +170,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 gsc.signOut();
                 FirebaseAuth.getInstance().signOut();
+                MainActivity.profilePicture = null;
                 finishAffinity();
                 finishAndRemoveTask();
                 MainAccountFragment.currentAccId = "";
