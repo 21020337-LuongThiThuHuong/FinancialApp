@@ -72,8 +72,8 @@ public class AddNewAccountActivity extends AppCompatActivity {
         }
         boolean cashChecked = binding.cashRadio.isChecked();
         String type;
-        if (binding.initValueET.getText().toString().trim().length() == 0) {
-            binding.initValueET.setError("Empty");
+        if (binding.initValueET.getText().toString().trim().length() == 0 || binding.initValueET.getText().toString().trim().length() >= 10) {
+            binding.initValueET.setError("Error");
             return;
         }
         long initialValue = Long.parseLong(NumberTextWatcherForThousand.trimCommaOfString(binding.initValueET.getText().toString()));
@@ -113,8 +113,8 @@ public class AddNewAccountActivity extends AppCompatActivity {
         }
         boolean cashChecked = binding.cashRadio.isChecked();
         String type;
-        if (binding.initValueET.getText().toString().trim().length() == 0) {
-            binding.initValueET.setError("Empty");
+        if (binding.initValueET.getText().toString().trim().length() == 0 || binding.initValueET.getText().toString().trim().length() >= 10) {
+            binding.initValueET.setError("Error");
             return;
         }
         long initialValue = Long.parseLong(NumberTextWatcherForThousand.trimCommaOfString(binding.initValueET.getText().toString().trim()));
