@@ -3,9 +3,11 @@
 This is a financial management Android App i created as a project for Software Engineering subject in university. It uses Firestore as a database and other Firebase tools.
 
 ## Images
-![LoginActivity](images/LoginActivity.png)
-![SignUpActivity](images/SignUpActivity.png)
-![ProfileActivity](images/ProfileActivity.png)
+Here are some images of the app:
+
+<img src="images/LoginActivity.png" height="780" width="414" >
+<img src="images/SignUpActivity.png" height="780" width="414" >
+<img src="images/ProfileActivity.png" height="780" width="414" >
 
 
 ## How to install
